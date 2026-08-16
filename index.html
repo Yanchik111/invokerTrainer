@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Invoker Prokast Trainer</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div id="topbar">
+    <div id="brand">Invoker <span>Trainer</span></div>
+
+    <div id="statsRow">
+      <div class="statChip"><span class="statLabel">Счёт</span><span id="scoreValue">0</span></div>
+      <div class="statChip"><span class="statLabel">Серия</span><span id="streakValue">0</span></div>
+      <div class="statChip miss"><span class="statLabel">Промахи</span><span id="missValue">0</span></div>
+    </div>
+
+    <div id="modeSwitch">
+      <button class="modeBtn active" data-mode="single">Одиночный</button>
+      <button class="modeBtn" data-mode="chain">Цепочка</button>
+    </div>
+
+    <button id="settingsBtn" title="Настройки">⚙</button>
+  </div>
+
+  <div id="gameField">
+    <div id="startOverlay">
+      <h1>Invoker Prokast Trainer</h1>
+      <p>Набери комбинацию из Q/W/E, чтобы прокастовать способность. Подтверждение через Invoke можно включить в настройках.</p>
+      <button id="startBtn">Начать</button>
+    </div>
+
+    <div id="chainSetupOverlay" class="hidden">
+      <h1>Выбери сложность</h1>
+      <p>От сложности зависит длина последовательности способностей</p>
+      <div id="chainDiffCards">
+        <div class="chainDiffCard" data-diff="easy">
+          <div class="chainDiffCardTitle">Лёгкий</div>
+          <div class="chainDiffCardCount">3 способности</div>
+        </div>
+        <div class="chainDiffCard" data-diff="medium">
+          <div class="chainDiffCardTitle">Средний</div>
+          <div class="chainDiffCardCount">6 способностей</div>
+        </div>
+        <div class="chainDiffCard" data-diff="hard">
+          <div class="chainDiffCardTitle">Сложный</div>
+          <div class="chainDiffCardCount">9 способностей</div>
+        </div>
+      </div>
+    </div>
+
+    <div id="chainResultOverlay" class="hidden">
+      <h1>Прохождение завершено</h1>
+      <div id="chainResultRank"></div>
+      <div id="chainResultScore"></div>
+      <div id="chainResultStats"></div>
+      <button id="chainRetryBtn">Попробовать снова</button>
+    </div>
+  </div>
+
+  <div id="chainPanel" class="hidden">
+    <div id="chainPanelHeader">
+      <div id="chainRoundLabel"></div>
+      <div id="chainTimer">0.0s</div>
+    </div>
+    <div id="chainSequence"></div>
+  </div>
+
+  <div id="orbTracker">
+    <div class="orbSlot" data-slot="0"></div>
+    <div class="orbSlot" data-slot="1"></div>
+    <div class="orbSlot" data-slot="2"></div>
+    <button id="invokeBtn" class="hidden" title="Подтвердить прокаст (R)"></button>
+  </div>
+
+  <div id="settingsPanel" class="hidden">
+    <h2>Настройки</h2>
+
+    <label class="settingRow">
+      Тема
+      <button id="themeToggle">🌙 Тёмная</button>
+    </label>
+
+    <label class="settingRow">
+      Начальная скорость
+      <input type="range" id="speedSlider" min="1" max="10" value="4" step="1">
+      <span id="speedValue">4</span>
+    </label>
+
+    <label class="settingRow">
+      Режим Invoke
+      <button id="invokeToggle">Выключено</button>
+    </label>
+
+    <button id="closeSettings">Закрыть</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
